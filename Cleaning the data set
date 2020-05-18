@@ -1,0 +1,11 @@
+df['normalized-losses'] = pd.to_numeric(df['normalized-losses'], errors='coerce') #unknown values converted to NaN type data
+mean=df["normalized-losses"].mean()
+print(mean)
+df["normalized-losses"].replace(np.nan,mean,inplace=True) #replacing the NaN type data by mean of the column
+df.head(12)
+df['price'] = pd.to_numeric(df['price'], errors='coerce') #To convert "?" in the data into NaN
+df = df.dropna() #To drop NaN values
+df.head(12)
+df["city-mpg"]=235/df["city-mpg"] #Equation to convert the quantity "miles/gallon" to "Litres/100km"
+df.rename(columns={"city-mpg":"city-L/100km"},inplace=True)
+print(df)
