@@ -9,3 +9,9 @@ df.head(12)
 df["city-mpg"]=235/df["city-mpg"] #Equation to convert the quantity "miles/gallon" to "Litres/100km"
 df.rename(columns={"city-mpg":"city-L/100km"},inplace=True)
 print(df)
+'''To convert datatype into integer in column "price"
+df["price"]=df["price"].astype("int") #To convert datatype into integer in column "price"
+df["length"]=df["length"]/df["length"].max() #Simple feature scaling method
+df["length"]=(df["length"]-df["length"].min())/(df["length"].max()-df["length"].min()) #min-max method in python
+df["length"]=(df["length"]-df["length"].mean())/df["length"].std() #Z-score in python
+'''
