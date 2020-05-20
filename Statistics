@@ -1,0 +1,8 @@
+m=df["length"].std() #to find standard deviation
+bins=np.linspace(min(df["price"]),max(df["price"]),4)
+group_names=["low","medium","high"]
+df["price-binned"]=pd.cut(df["price"],bins,labels=group_names,include_lowest=True) #Categorizing the data based on price
+df.rename(columns={'make':'brand'},inplace=True)
+z=pd.get_dummies(df['fuel-type']) #In this data, fuel-type is a string and we wish to convert it to integers
+print(z) #We get a binary data for each type
+df.describe() #This summarizes statistics
