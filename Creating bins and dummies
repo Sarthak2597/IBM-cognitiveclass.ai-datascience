@@ -1,0 +1,8 @@
+m=df["length"].std()
+print(m) #To find standard deviation
+bins=np.linspace(min(df["price"]),max(df["price"]),4) #We group the data according to price
+group_names=["low","medium","high"]
+df["price-binned"]=pd.cut(df["price"],bins,labels=group_names,include_lowest=True) #Here 3 groups (low priced, medium priced and highly priced cars) are created
+df.rename(columns={'make':'brand'},inplace=True)
+z=pd.get_dummies(df['fuel-type']) #Fuel-type is in the form of gas/diesel. By creating dummies, we are creating a numeric data for this type
+print(z)
